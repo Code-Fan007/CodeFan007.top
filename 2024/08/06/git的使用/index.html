@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="project" />
+  <meta name="keywords" content="git" />
 
 
-<link rel="canonical" href="https://code-fan007.github.io/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/">
+<link rel="canonical" href="https://code-fan007.github.io/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 
   <title>
-基于arduino的语音交互四足机械蜘蛛 - Project |
+git的使用 |
 Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,23 +60,23 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">基于arduino的语音交互四足机械蜘蛛
+  <h1 itemprop="name headline">git的使用
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2024-07-06 16:00:00">
+  <span class="item" title="创建时间：2024-08-06 12:22:02">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2024-07-06T16:00:00+08:00">2024-07-06</time>
+    <time itemprop="dateCreated datePublished" datetime="2024-08-06T12:22:02+08:00">2024-08-06</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>36</span>
+    <span>911</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67530"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67545"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67540"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67541"></li>
           <li class="item" data-background-image="https://pan.imgbed.link/file/67549"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67543"></li>
           <li class="item" data-background-image="https://pan.imgbed.link/file/67526"></li>
+          <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3oxwhj1j30xc0m8q8j.jpg"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67529"></li>
+          <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3okv00lj31c00u0qf1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -147,13 +147,11 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Project/" itemprop="item" rel="index" title="分类于 Project"><span itemprop="name">Project</span></a>
-<meta itemprop="position" content="1" /></span>
+<span><a href="/">首页</a></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://code-fan007.github.io/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/">
+  <link itemprop="mainEntityOfPage" href="https://code-fan007.github.io/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -168,11 +166,31 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>开发工具：3D 打印；solidworks;Arduino IDE;；<br>
-清单：</p>
+    <p>windows 和 linux 都可以（我偏向于 linux），windows 下可以安装 git bash（配合小乌龟图形化也不错的）；linux 下直接安装 git 即可。</p>
+<h1 id="ssh配置和克隆仓库"><a class="markdownIt-Anchor" href="#ssh配置和克隆仓库">#</a> ssh 配置和克隆仓库</h1>
+<p>ssh 协议：在推送的时候不需要验证用户名和密码，但是需要在 git clone 的时候配置 ssh 密钥。（推荐）安全又方便。<br>
+在克隆时候会报错<br>
+<img data-src="image/%E5%85%B6%E4%BB%96/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8ssh%E5%8D%8F%E8%AE%AEgit%E5%85%8B%E9%9A%86%E6%8A%A5%E9%94%99.png" alt="alt text"><br>
+ 这是因为没有配置 ssh 秘钥导致的，使用 ssh 方式必须配置 ssh 秘钥。<br>
+配置过程：</p>
+<ul>
+<li>首先，退出到根目录，再进入.ssh 目录，然后使用 ssh-key generate 命令生成秘钥对；回车</li>
+</ul>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre>cd </pre></td></tr><tr><td data-num="2"></td><td><pre>cd <span class="token punctuation">.</span>ssh</pre></td></tr><tr><td data-num="3"></td><td><pre>ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span>b <span class="token number">4096</span></pre></td></tr></table></figure><p>回车之后，它提示我们需要输入秘钥的文件名称，取一个名字就行，不然就把原来的覆盖住了</p>
+<ul>
+<li>注意：如果第一次使用，直接回车就可以了</li>
+</ul>
+<p>如果是 windows ，可以在 git 的 bash 输入 cd ~ ，然后打下 pwd 看下自己的～目录在哪里，.ssh 一般就在这个目录下<br>
+本地目录：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre>ls <span class="token operator">-</span>ltr</pre></td></tr></table></figure><p>没有任何扩展名的这个文件是<strong>私钥文件</strong>；而以.pub 结尾的这个文件是<strong>公钥文件</strong>，公钥文件的内容可以直接复制粘贴到 github 或者 gitee 的 ssh 公钥管理页面。<br>
+回到 github，在主页的右上角点击头像，然后点击 settings，选择 SSH and GPG keys，点击 New SSH key，把公钥文件的内容粘贴进去，取一个任意的名字，点击 Add SSH key 即可。</p>
+<p>第一次配置的话完成，到这里就完成了，但是如果刚刚取名字的是新文件那么需要</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre>vi 新文件名字<span class="token punctuation">.</span>pub</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">// 把下面这五行内容添加到文件里面</span></pre></td></tr><tr><td data-num="3"></td><td><pre>tail <span class="token operator">-</span><span class="token number">5</span> config</pre></td></tr><tr><td data-num="4"></td><td><pre>#github</pre></td></tr><tr><td data-num="5"></td><td><pre>Host github<span class="token punctuation">.</span>com</pre></td></tr><tr><td data-num="6"></td><td><pre>HostName github<span class="token punctuation">.</span>com</pre></td></tr><tr><td data-num="7"></td><td><pre>PreferredAuthentications publickey</pre></td></tr><tr><td data-num="8"></td><td><pre>IdentityFile <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span>text</pre></td></tr></table></figure><p>上面的这内容意思是当我们使用 ssh 协议连接 github 的时候，使用 **~/.ssh/ 新文件名字 ** 这个私钥文件。<br>
+全部完了后，再次克隆。<br>
+如果失败 https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port</p>
 
       <div class="tags">
-          <a href="/tags/project/" rel="tag"><i class="ic i-tag"></i> project</a>
+          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
       </div>
   </div>
 
@@ -184,9 +202,9 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-07-08 15:14:17" itemprop="dateModified" datetime="2024-07-08T15:14:17+08:00">2024-07-08</time>
+    <time title="修改时间：2024-08-06 18:36:50" itemprop="dateModified" datetime="2024-08-06T18:36:50+08:00">2024-08-06</time>
   </span>
-  <span id="2024/07/06/Project/基于arduino的语音交互四足机械蜘蛛/" class="item leancloud_visitors" data-flag-title="基于arduino的语音交互四足机械蜘蛛" title="阅读次数">
+  <span id="2024/08/06/git的使用/" class="item leancloud_visitors" data-flag-title="git的使用" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -228,7 +246,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://code-fan007.github.io/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/" title="基于arduino的语音交互四足机械蜘蛛">https://code-fan007.github.io/2024/07/06/Project/基于arduino的语音交互四足机械蜘蛛/</a>
+    <a href="https://code-fan007.github.io/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">https://code-fan007.github.io/2024/08/06/git的使用/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -247,22 +265,14 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
     <div class="item left">
       
 
-  <a href="/2024/07/05/Markdown+VSCODE%E5%AE%9E%E7%8E%B0%E6%9C%80%E5%AE%8C%E7%BE%8E%E6%B5%81%E7%95%85%E5%86%99%E4%BD%9C%E4%BD%93%E9%AA%8C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67548" title="Markdown+VSCODE实现最完美流畅写作体验">
+  <a href="/2024/07/20/Embedded/STM32/Stm32%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67544" title="STM32单片机一系列">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Markdown+VSCODE实现最完美流畅写作体验</h3>
+  <span class="category"><i class="ic i-flag"></i> Embedded</span>
+  <h3>STM32单片机一系列</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2024/07/07/game_First_Demo/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67543" title="game_First_Demo">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> game</span>
-  <h3>game_First_Demo</h3>
-  </a>
-
     </div>
 </div>
 
@@ -279,11 +289,9 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh%E9%85%8D%E7%BD%AE%E5%92%8C%E5%85%8B%E9%9A%86%E4%BB%93%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text"> ssh 配置和克隆仓库</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
-        <ul>
-          <li class="active"><a href="/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/" rel="bookmark" title="基于arduino的语音交互四足机械蜘蛛">基于arduino的语音交互四足机械蜘蛛</a></li><li><a href="/2024/07/07/Project/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E7%8B%97/" rel="bookmark" title="基于树莓派的四足机器狗">基于树莓派的四足机器狗</a></li>
-        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -372,12 +380,10 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2024/07/05/Markdown+VSCODE%E5%AE%9E%E7%8E%B0%E6%9C%80%E5%AE%8C%E7%BE%8E%E6%B5%81%E7%95%85%E5%86%99%E4%BD%9C%E4%BD%93%E9%AA%8C/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2024/07/07/game_First_Demo/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -399,77 +405,10 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MEmbedded/" title="分类于 MEmbedded">MEmbedded</a>
-</div>
-
-    <span><a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="51单片机一系列">51单片机一系列</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/05/Markdown+VSCODE%E5%AE%9E%E7%8E%B0%E6%9C%80%E5%AE%8C%E7%BE%8E%E6%B5%81%E7%95%85%E5%86%99%E4%BD%9C%E4%BD%93%E9%AA%8C/" title="Markdown+VSCODE实现最完美流畅写作体验">Markdown+VSCODE实现最完美流畅写作体验</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/game/" title="分类于 game">game</a>
-</div>
-
-    <span><a href="/2024/07/07/game_First_Demo/" title="game_First_Demo">game_First_Demo</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Project/" title="分类于 Project">Project</a>
 </div>
 
     <span><a href="/2024/07/07/Project/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E7%8B%97/" title="基于树莓派的四足机器狗">基于树莓派的四足机器狗</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/01/Novel/Diary/about/" title="about me">about me</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">git的使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/RaspberryPi/" title="分类于 树莓派">树莓派</a>
-</div>
-
-    <span><a href="/2024/07/03/RaspberryPi/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E9%85%8D%E7%BD%AE/" title="树莓派入门配置">树莓派入门配置</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Project/" title="分类于 Project">Project</a>
-</div>
-
-    <span><a href="/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/" title="基于arduino的语音交互四足机械蜘蛛">基于arduino的语音交互四足机械蜘蛛</a></span>
   </li>
 
       
@@ -490,6 +429,73 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
 </div>
 
     <span><a href="/2024/07/01/Novel/Diary/%E5%A4%A7%E5%AD%A6%E4%B9%8B%E8%B7%AF%E6%B2%88%E9%98%B3%E7%AF%87/" title="大学之路沈阳篇">大学之路沈阳篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/05/Markdown+VSCODE%E5%AE%9E%E7%8E%B0%E6%9C%80%E5%AE%8C%E7%BE%8E%E6%B5%81%E7%95%85%E5%86%99%E4%BD%9C%E4%BD%93%E9%AA%8C/" title="Markdown+VSCODE实现最完美流畅写作体验">Markdown+VSCODE实现最完美流畅写作体验</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/RaspberryPi/" title="分类于 树莓派">树莓派</a>
+</div>
+
+    <span><a href="/2024/07/03/RaspberryPi/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E9%85%8D%E7%BD%AE/" title="树莓派入门配置">树莓派入门配置</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">git的使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MEmbedded/" title="分类于 MEmbedded">MEmbedded</a>
+</div>
+
+    <span><a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="51单片机一系列">51单片机一系列</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/01/Novel/Diary/about/" title="about me">about me</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Embedded/" title="分类于 Embedded">Embedded</a>
+</div>
+
+    <span><a href="/2024/07/20/Embedded/STM32/Stm32%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="STM32单片机一系列">STM32单片机一系列</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/game/" title="分类于 game">game</a>
+</div>
+
+    <span><a href="/2024/07/07/game_First_Demo/" title="game_First_Demo">game_First_Demo</a></span>
   </li>
 
   </ul>
@@ -532,7 +538,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2024/07/06/Project/基于arduino的语音交互四足机械蜘蛛/',
+    path: '2024/08/06/git的使用/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
