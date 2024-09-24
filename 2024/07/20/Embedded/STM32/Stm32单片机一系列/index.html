@@ -76,7 +76,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.5k</span>
+    <span>3.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>2 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67543"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67524"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67544"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67523"></li>
           <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3okv00lj31c00u0qf1.jpg"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67541"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67524"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67549"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67544"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67543"></li>
+          <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3oxwhj1j30xc0m8q8j.jpg"></li>
         </ul>
       </div>
     </header>
@@ -256,33 +256,60 @@ APB2 一般和 AHB 同频率都是 72MHz，APB1 一般是 36MHz，所以 APB2 �
 DMA 是 CPU 的小秘书，比如一些大量的数据搬运这样简单且重复干的事情，让 cpu 来干会浪费时间。<br>
 DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总线控制权，用于访问外设小弟，当需要 DMA 搬运数据时，外设就会通过请求线发送 DMA 请求，然后 DMA 就会获的总线控制权，访问并转运数据，整个过程不需要 cpu 的参与</p>
 <h2 id="引脚定义"><a class="markdownIt-Anchor" href="#引脚定义">#</a> 引脚定义</h2>
-<p>图・・・・・・・・・・・<br>
-拿到一个芯片时，需要着重的看一下它的引脚定义<br>
-让 STM32 正常工作，首先将电源部分和最小系统部分的电路连接好（也就是这个表中红色和蓝色的部分）<br>
-红色为电源相关引脚，蓝色为最小系统相关引脚，绿色为 IO 口、功能口<br>
- S 代表电源、I 代表输入、O 代表输出，IO 代表输入输出<br>
- IO 口电平代表 IO 口所能容忍的电压，FT 代表容忍 5V 的电压，没有 FT 的智能容忍 3.3V 电压（如果没有 FT，需要接 5V 的电平，需要加装电平转换电路）<br>
-主功能就是上电后默认的功能，一般和引脚名称相同。如果不同的话引脚的实际功能是主功能而不是引脚名称的功能<br>
-默认复用功能是，IO 口上同时连接的外设功能引脚，配置 IO 口时可以选择是通用 IO 口还是复用功能<br>
-重定义功能，作用是如果有两个功能同时复用在了一个 IO 口上，而且确实需要用到这两个功能，可以将其中一个复用功能重映射到其他端口上（前提是，这个重定义功能的表里有对应的端口）<br>
-优先使用加粗的 IO 口，没有加粗的 IO 口可能需要进行配置或者兼具其他功能。<br>
-1 引脚 VBAT 是备用电池供电引脚，可接 3v 电池，当系统电源断电时，备用电池可给内部的 RTC 时钟和备份寄存器提供电源<br>
- 2 引脚是 IO 口或侵入检测或 RTC，IO 口可以根据程序输出或读取高低电平。侵入检测可以用来做安全保障的功能（比如你的产品安全性比较高，可以在外壳加一些防拆的触电，然后接上电路到这个引脚上，若有人强行拆开设备，则触电断开，这个引脚的电平变化就会触发 STM32 的侵入信号，然后就会清空数据来保证安全）。RTC 的引脚可以用来输出 RTC 校准时钟、RTC 闹钟脉冲或者秒脉冲<br>
- 3、4 引脚是 IO 口或者接 32.768KHz 的 RTC 晶振<br>
- 5、6 号引脚接系统的主晶振，一般是 8MHz，然后芯片内有锁相环电路，可以对这个 8MHz 的频率进行倍频，最终产生 72Mhz 的频率作为系统的主时钟<br>
- 7 引脚 NRST 是系统复位引脚，N 代表是低电平复位<br>
- 8、9 引脚是内部模拟部分的电源，比如 ADC、RC 振荡器等。vss 是负极，接 GND，VDD 是正级，接 3.3V<br>
-10-19 号引脚都是 IO 口，其中 PA0 还兼具了 WKUP 功能（可以用于唤醒处于待机模式的 STM32）<br>
-20 号引脚是 IO 口或 BOOT1 引脚，BOOT 引脚是用来配置启动模式的<br>
- 21、22 引脚是 IO 口<br>
- 23、24 引脚是 VSS_1 和 VDD_1 是系统的主电源口，同样的 VSS 是负极，VDD 是正级<br>
-下面的 VSS_2 和 VDD_2 以及 VSS_3 和 VDD_3 都是系统的主电源口，这里 STM32 内部采用分区供电的方式，所以供电口比较多，在使用时，把 VSS 都接 GND，VDD 都接 3.3V 即可<br>
- 25-33 引脚都是 IO 口<br>
- 34-40 引脚再加 27 号引脚，都是 IO 口或者调试端口，默认功能是调试端口（用来调试程序和下载数据），这个 STM32 支持 SWD（需要两根线，分别是 SWDIO 和 SEDLK) 和 JTAG (需要五根线，分别是 JTMS、JTCK、JTDL、JTDO、NJTRST) 两种调试方式。<br>
-STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 IO 口，剩下的 PA15、PB3、PB4 可以切换为普通的 IO 口使用（需在程序中配置，不配置的话默认是不会用作 IO 口的）<br>
-41、42、43、45、46 引脚都是 IO 口<br>
- 44 引脚 BOOT0 和 BOOT1 一样用来做启动配置</p>
+<p>图・・・・・・・・・・・</p>
+<ul>
+<li>拿到一个芯片时，需要着重的看一下它的引脚定义</li>
+<li>让 STM32 正常工作，首先将电源部分和最小系统部分的电路连接好（也就是这个表中红色和蓝色的部分）</li>
+<li>红色为电源相关引脚，蓝色为最小系统相关引脚，绿色为 IO 口、功能口</li>
+<li>S 代表电源、I 代表输入、O 代表输出，IO 代表输入输出</li>
+<li>IO 口电平代表 IO 口所能容忍的电压，FT 代表容忍 5V 的电压，没有 FT 的智能容忍 3.3V 电压（如果没有 FT，需要接 5V 的电平，需要加装电平转换电路）</li>
+<li>主功能就是上电后默认的功能，一般和引脚名称相同。如果不同的话引脚的实际功能是主功能而不是引脚名称的功能</li>
+<li>默认复用功能是，IO 口上同时连接的外设功能引脚，配置 IO 口时可以选择是通用 IO 口还是复用功能</li>
+<li>重定义功能，作用是如果有两个功能同时复用在了一个 IO 口上，而且确实需要用到这两个功能，可以将其中一个复用功能重映射到其他端口上（前提是，这个重定义功能的表里有对应的端口）</li>
+<li>优先使用加粗的 IO 口，没有加粗的 IO 口可能需要进行配置或者兼具其他功能。</li>
+<li>1 引脚 VBAT 是备用电池供电引脚，可接 3v 电池，当系统电源断电时，备用电池可给内部的 RTC 时钟和备份寄存器提供电源</li>
+<li>2 引脚是 IO 口或侵入检测或 RTC，IO 口可以根据程序输出或读取高低电平。侵入检测可以用来做安全保障的功能（比如你的产品安全性比较高，可以在外壳加一些防拆的触电，然后接上电路到这个引脚上，若有人强行拆开设备，则触电断开，这个引脚的电平变化就会触发 STM32 的侵入信号，然后就会清空数据来保证安全）。RTC 的引脚可以用来输出 RTC 校准时钟、RTC 闹钟脉冲或者秒脉冲</li>
+<li>3、4 引脚是 IO 口或者接 32.768KHz 的 RTC 晶振</li>
+<li>5、6 号引脚接系统的主晶振，一般是 8MHz，然后芯片内有锁相环电路，可以对这个 8MHz 的频率进行倍频，最终产生 72Mhz 的频率作为系统的主时钟</li>
+<li>7 引脚 NRST 是系统复位引脚，N 代表是低电平复位</li>
+<li>8、9 引脚是内部模拟部分的电源，比如 ADC、RC 振荡器等。vss 是负极，接 GND，VDD 是正级，接 3.3V</li>
+<li>10-19 号引脚都是 IO 口，其中 PA0 还兼具了 WKUP 功能（可以用于唤醒处于待机模式的 STM32）</li>
+<li>20 号引脚是 IO 口或 BOOT1 引脚，BOOT 引脚是用来配置启动模式的</li>
+<li>21、22 引脚是 IO 口</li>
+<li>23、24 引脚是 VSS_1 和 VDD_1 是系统的主电源口，同样的 VSS 是负极，VDD 是正级<br>
+下面的 VSS_2 和 VDD_2 以及 VSS_3 和 VDD_3 都是系统的主电源口，这里 STM32 内部采用分区供电的方式，所以供电口比较多，在使用时，把 VSS 都接 GND，VDD 都接 3.3V 即可</li>
+<li>25-33 引脚都是 IO 口</li>
+<li>34-40 引脚再加 27 号引脚，都是 IO 口或者调试端口，默认功能是调试端口（用来调试程序和下载数据），这个 STM32 支持 SWD（需要两根线，分别是 SWDIO 和 SEDLK) 和 JTAG (需要五根线，分别是 JTMS、JTCK、JTDL、JTDO、NJTRST) 两种调试方式。</li>
+<li>STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 IO 口，剩下的 PA15、PB3、PB4 可以切换为普通的 IO 口使用（需在程序中配置，不配置的话默认是不会用作 IO 口的）</li>
+<li>41、42、43、45、46 引脚都是 IO 口</li>
+<li>44 引脚 BOOT0 和 BOOT1 一样用来做启动配置</li>
+</ul>
 <h2 id="启动配置"><a class="markdownIt-Anchor" href="#启动配置">#</a> 启动配置</h2>
+<ul>
+<li>启动配置的作用是指定程序开始运行的位置。</li>
+<li>一般情况下，程序都是在 FLASH（主闪存存储器）程序存储器开始执行</li>
+<li>接 1 就是接到 3.3V 电源正的意思</li>
+<li>系统存储器这个模式就是用来做串口下载的，这个系统存储器存的就是 STM32 中的一段 - BootLoader 程序（BootLoader 程序作用就是接受串口的数据，然后刷新到主闪存中，这样就可以使用串口下载程序）。</li>
+<li>一般，需要串口下载程序时（当没有调试接口时，这时需要用到串口的方式下载程序）需要配置到系统存储器启动模式</li>
+<li>内置 SRAM 模式，主要用来进行程序的调试</li>
+<li>BOOT 引脚的值是在上电复位后的一瞬间有效的，之后就随便了。例如 20 引脚在上电瞬间是 BOOT1 的功能，当第四个时钟过之后就是 PB2 的功能了</li>
+</ul>
+<h2 id="最小系统电路"><a class="markdownIt-Anchor" href="#最小系统电路">#</a> 最小系统电路</h2>
+<ul>
+<li>一般来说，单片机只有一个芯片是无法正常工作的，需要连接最基本的电路（最小系统电路）</li>
+<li>供电部分，VSS 都连接了 GND，VDD 都连接了 3.3V。在这个 3.3v 和 GND 之间，一般会连接一个滤波电容（这个电容可以保证电压的稳定）</li>
+<li>一般只要遇到供电，都会习惯上加上几个滤波电容</li>
+<li>VBAT 是接备用电池的。可以选择一个 3v 的纽扣电池，正极接 VBAT，负极接 GND。备用电池是给 RTC 和备份寄存器服务的</li>
+<li>晶振部分，接一个 8MHz 的主时钟晶振（8MHz 经过内部锁相环倍频，得到 72Mhz 的主频）</li>
+<li>这个晶振的两根引脚分别通过两个网络标号接到 STM32 的 5、6 号引脚</li>
+<li>还需接两个 20pf 的电容，作为启震电容，电容的另一端接地即可</li>
+<li>若需 RTC 功能还需再接一个 32.768KHz 的晶振，电路和这个一样，接在 3、4 号引脚，OSC32 - 就是 32.768KHz 晶振的意思。（因为 32.768 是 2 的 15 次方，内部 RTC 经过 2 的 15 次方分频就可以生成 1 秒的时间信号）</li>
+<li>复位电路部分，是一个 10k 的电阻和 0.1uf 的电容组成，用来给单片机提供复位信号，NRST 接在 STM32 的 7 号引脚</li>
+<li>上电瞬间的波形是先低电平，然后逐渐高电平。NRST 是低电平复位的（当复位电路上电的瞬间，电容是没有电的），电源通过电阻开始向电容充电，并且此时电容呈现的是短路状态（NRST 引脚就会产生低电平）。当电容逐渐充满电时，电容就相当于断路，此时 NRST 就会被 R1 上拉为高电平。（低电平提供 STM32 的上电复位信号）</li>
+<li>按键，提供一个手动复位的功能，当按下按键，电容放电，并且 NRST 引脚也通过按键直接接地了，这就相当于手动产生了低电平复位信号，按键松手后，NRST 又回归高电平，此时单片机从复位状态转为工作状态。复位，程序就从头开始运行。</li>
+<li>启动配置部分，H1 相当于开关的作用（拨码开关 / 插跳线帽），拨动开关就可以让 BOOT 引脚选择接 3.3v 还是 GND 了</li>
+<li>下载端口部分，若使用 STLINK 下载程序，需将 SWDIO 和 SWDLK 这两个引脚引出来方便接线，另外将 3.3v 和 GND 引出来</li>
+</ul>
 
       <div class="tags">
           <a href="/tags/Embedded/" rel="tag"><i class="ic i-tag"></i> Embedded</a>
@@ -299,7 +326,7 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-09-24 10:47:29" itemprop="dateModified" datetime="2024-09-24T10:47:29+08:00">2024-09-24</time>
+    <time title="修改时间：2024-09-24 11:04:04" itemprop="dateModified" datetime="2024-09-24T11:04:04+08:00">2024-09-24</time>
   </span>
   <span id="2024/07/20/Embedded/STM32/Stm32单片机一系列/" class="item leancloud_visitors" data-flag-title="STM32单片机一系列" title="阅读次数">
       <span class="icon">
@@ -362,7 +389,7 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
     <div class="item left">
       
 
-  <a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67529" title="51单片机一系列">
+  <a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;dlink.host&#x2F;wx3.sinaimg.cn&#x2F;large&#x2F;007WNxAGly8hra3livtspj30p00ixtct.jpg" title="51单片机一系列">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Embedded</span>
   <h3>51单片机一系列</h3>
@@ -372,7 +399,7 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
     <div class="item right">
       
 
-  <a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;dlink.host&#x2F;wx1.sinaimg.cn&#x2F;large&#x2F;007WNxAGly8hra3oxwhj1j30xc0m8q8j.jpg" title="git的使用">
+  <a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67542" title="git的使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>git的使用</h3>
@@ -394,7 +421,7 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%83%A7%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三种烧录方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text"> 介绍 &#x2F; 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text"> 外设介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.2.</span> <span class="toc-text"> 命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 系统结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.</span> <span class="toc-text"> 引脚定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text"> 启动配置</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%83%A7%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三种烧录方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text"> 介绍 &#x2F; 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text"> 外设介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.2.</span> <span class="toc-text"> 命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 系统结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.</span> <span class="toc-text"> 引脚定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text"> 启动配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F%E7%94%B5%E8%B7%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 最小系统电路</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -527,7 +554,45 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2024/09/21/%E5%AF%B9C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%84%9F%E5%8F%97/" title="对C语言的理解和感受">对C语言的理解和感受</a></span>
+    <span><a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">git的使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Project/" title="分类于 Project">Project</a>
+</div>
+
+    <span><a href="/2024/07/07/Project/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E7%8B%97/" title="基于树莓派的四足机器狗">基于树莓派的四足机器狗</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/06/%E5%88%B7C%E8%AF%AD%E8%A8%80150%E9%81%93%E9%A2%98%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="刷C语言150道题复习笔记">刷C语言150道题复习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/RaspberryPi/" title="分类于 树莓派">树莓派</a>
+</div>
+
+    <span><a href="/2024/07/03/RaspberryPi/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E9%85%8D%E7%BD%AE/" title="树莓派入门配置">树莓派入门配置</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/07/01/Novel/Diary/about/" title="about me">about me</a></span>
   </li>
 
       
@@ -543,9 +608,10 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/game/" title="分类于 game">game</a>
 </div>
 
-    <span><a href="/2024/09/06/%E5%88%B7C%E8%AF%AD%E8%A8%80150%E9%81%93%E9%A2%98%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="刷C语言150道题复习笔记">刷C语言150道题复习笔记</a></span>
+    <span><a href="/2024/07/07/game_First_Demo/" title="game_First_Demo">game_First_Demo</a></span>
   </li>
 
       
@@ -562,47 +628,10 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Embedded/" title="分类于 Embedded">Embedded</a>
 </div>
 
-    <span><a href="/2024/09/05/S7-1200%20PLC/" title="电气控制与S7-1200 PLC">电气控制与S7-1200 PLC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/09/01/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" title="自动控制原理">自动控制原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Novel/" title="分类于 Novel">Novel</a>
-</div>
-
-    <span><a href="/2024/07/01/Novel/my-novel/%E5%90%8D%E4%BA%BA%E5%8A%B1%E5%BF%97%E5%A5%8B%E6%96%97%E5%8F%B2/" title="名人励志奋斗史">名人励志奋斗史</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Project/" title="分类于 Project">Project</a>
-</div>
-
-    <span><a href="/2024/07/06/Project/%E5%9F%BA%E4%BA%8Earduino%E7%9A%84%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E5%9B%9B%E8%B6%B3%E6%9C%BA%E6%A2%B0%E8%9C%98%E8%9B%9B/" title="基于arduino的语音交互四足机械蜘蛛">基于arduino的语音交互四足机械蜘蛛</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/01/Novel/Diary/about/" title="about me">about me</a></span>
+    <span><a href="/2024/07/20/Embedded/STM32/Stm32%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="STM32单片机一系列">STM32单片机一系列</a></span>
   </li>
 
   </ul>
@@ -627,13 +656,13 @@ STLINK 调试程序用的是 SWD 方式（只需占用 PA13 和 PA14 这两个 I
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">11k 字</span>
+    <span title="站点总字数">13k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">11 分钟</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
