@@ -76,7 +76,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.7k</span>
+    <span>3.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>3 分钟</span>
+    <span>4 分钟</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Fan Lei's Blog = 高级的欲望，只有克制才能达成</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3okv00lj31c00u0qf1.jpg"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67524"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67526"></li>
+          <li class="item" data-background-image="https://dlink.host/wx3.sinaimg.cn/large/007WNxAGly8hra3lljz4wj30rs0fmjsz.jpg"></li>
           <li class="item" data-background-image="https://pan.imgbed.link/file/67549"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67544"></li>
-          <li class="item" data-background-image="https://pan.imgbed.link/file/67543"></li>
-          <li class="item" data-background-image="https://dlink.host/wx1.sinaimg.cn/large/007WNxAGly8hra3oxwhj1j30xc0m8q8j.jpg"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67541"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67546"></li>
+          <li class="item" data-background-image="https://pan.imgbed.link/file/67545"></li>
         </ul>
       </div>
     </header>
@@ -310,6 +310,15 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
 <li>启动配置部分，H1 相当于开关的作用（拨码开关 / 插跳线帽），拨动开关就可以让 BOOT 引脚选择接 3.3v 还是 GND 了</li>
 <li>下载端口部分，若使用 STLINK 下载程序，需将 SWDIO 和 SWDLK 这两个引脚引出来方便接线，另外将 3.3v 和 GND 引出来</li>
 </ul>
+<h1 id="第一个工程的实现"><a class="markdownIt-Anchor" href="#第一个工程的实现">#</a> 第一个工程的实现</h1>
+<ul>
+<li>标准库（库函数）新建工程教程和方法实例：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzYxNzEyODI5L2FydGljbGUvZGV0YWlscy8xMzIzNjk3MDc=">https://blog.csdn.net/m0_61712829/article/details/132369707</span></li>
+</ul>
+<p>每次新建完工程之后要添加到积木箱并且把路径加到 C/C++ 的 defines 定义文件下中，否则会找不到头文件。<br>
+头文件搜索路径中，否则会找不到头文件。</p>
+<pre><code>USE_STDPERIPH_DRIVER
+</code></pre>
+<h1 id="第一个外设gpio的使用"><a class="markdownIt-Anchor" href="#第一个外设gpio的使用">#</a> 第一个外设 GPIO 的使用</h1>
 
       <div class="tags">
           <a href="/tags/Embedded/" rel="tag"><i class="ic i-tag"></i> Embedded</a>
@@ -326,7 +335,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-09-24 11:04:04" itemprop="dateModified" datetime="2024-09-24T11:04:04+08:00">2024-09-24</time>
+    <time title="修改时间：2024-09-25 10:50:00" itemprop="dateModified" datetime="2024-09-25T10:50:00+08:00">2024-09-25</time>
   </span>
   <span id="2024/07/20/Embedded/STM32/Stm32单片机一系列/" class="item leancloud_visitors" data-flag-title="STM32单片机一系列" title="阅读次数">
       <span class="icon">
@@ -389,7 +398,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
     <div class="item left">
       
 
-  <a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;dlink.host&#x2F;wx3.sinaimg.cn&#x2F;large&#x2F;007WNxAGly8hra3livtspj30p00ixtct.jpg" title="51单片机一系列">
+  <a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67525" title="51单片机一系列">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Embedded</span>
   <h3>51单片机一系列</h3>
@@ -399,7 +408,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
     <div class="item right">
       
 
-  <a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67542" title="git的使用">
+  <a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pan.imgbed.link&#x2F;file&#x2F;67529" title="git的使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>git的使用</h3>
@@ -421,7 +430,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%83%A7%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三种烧录方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text"> 介绍 &#x2F; 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text"> 外设介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.2.</span> <span class="toc-text"> 命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 系统结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.</span> <span class="toc-text"> 引脚定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text"> 启动配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F%E7%94%B5%E8%B7%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 最小系统电路</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%83%A7%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三种烧录方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text"> 介绍 &#x2F; 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text"> 外设介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.2.</span> <span class="toc-text"> 命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text"> 系统结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.</span> <span class="toc-text"> 引脚定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text"> 启动配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F%E7%94%B5%E8%B7%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 最小系统电路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text"> 第一个工程的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E8%AE%BEgpio%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text"> 第一个外设 GPIO 的使用</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -439,7 +448,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">15</span>
+        <span class="count">17</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -451,7 +460,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">15</span>
+        <span class="count">16</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -542,10 +551,28 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Embedded/" title="分类于 Embedded">Embedded</a>
+<a href="/categories/game/" title="分类于 game">game</a>
 </div>
 
-    <span><a href="/2024/07/10/Embedded/51MCU/51%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="51单片机一系列">51单片机一系列</a></span>
+    <span><a href="/2024/07/07/game_First_Demo/" title="game_First_Demo">game_First_Demo</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/21/%E6%8C%87%E9%92%88/" title="指针">指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a></span>
   </li>
 
       
@@ -555,63 +582,6 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
 </div>
 
     <span><a href="/2024/08/06/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">git的使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Project/" title="分类于 Project">Project</a>
-</div>
-
-    <span><a href="/2024/07/07/Project/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E7%8B%97/" title="基于树莓派的四足机器狗">基于树莓派的四足机器狗</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/09/06/%E5%88%B7C%E8%AF%AD%E8%A8%80150%E9%81%93%E9%A2%98%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="刷C语言150道题复习笔记">刷C语言150道题复习笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/RaspberryPi/" title="分类于 树莓派">树莓派</a>
-</div>
-
-    <span><a href="/2024/07/03/RaspberryPi/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E9%85%8D%E7%BD%AE/" title="树莓派入门配置">树莓派入门配置</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/01/Novel/Diary/about/" title="about me">about me</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2024/07/05/Markdown+VSCODE%E5%AE%9E%E7%8E%B0%E6%9C%80%E5%AE%8C%E7%BE%8E%E6%B5%81%E7%95%85%E5%86%99%E4%BD%9C%E4%BD%93%E9%AA%8C/" title="Markdown+VSCODE实现最完美流畅写作体验">Markdown+VSCODE实现最完美流畅写作体验</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/game/" title="分类于 game">game</a>
-</div>
-
-    <span><a href="/2024/07/07/game_First_Demo/" title="game_First_Demo">game_First_Demo</a></span>
   </li>
 
       
@@ -628,10 +598,47 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
   <li class="item">
     
 <div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/05/S7-1200%20PLC/" title="电气控制与S7-1200 PLC">电气控制与S7-1200 PLC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/06/%E5%88%B7C%E8%AF%AD%E8%A8%80150%E9%81%93%E9%A2%98%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="刷C语言150道题复习笔记">刷C语言150道题复习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Embedded/" title="分类于 Embedded">Embedded</a>
 </div>
 
     <span><a href="/2024/07/20/Embedded/STM32/Stm32%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%80%E7%B3%BB%E5%88%97/" title="STM32单片机一系列">STM32单片机一系列</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/09/01/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" title="自动控制原理">自动控制原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/RaspberryPi/" title="分类于 树莓派">树莓派</a>
+</div>
+
+    <span><a href="/2024/07/03/RaspberryPi/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E9%97%A8%E9%85%8D%E7%BD%AE/" title="树莓派入门配置">树莓派入门配置</a></span>
   </li>
 
   </ul>
@@ -662,7 +669,7 @@ DMA 通过 DMA 总线连接到总线矩阵上，可以拥有和 cpu 一样的总
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
